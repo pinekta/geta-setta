@@ -10,13 +10,13 @@ use Tests\Unit\Support\TestInaccessibleIfInaccessibleProps;
 use Tests\Unit\Support\TestInaccessibleIfNotArray;
 
 /**
- * A test for AccessorProvider
+ * A test for AccessorAvailable
  *
  * @access public
  * @author @pinekta <h03a081b@gmail.com>
  * @copyright @pinekta All Rights Reserved
  */
-class AccessorProviderTest extends TestCase
+class AccessorAvailableTest extends TestCase
 {
     /** @var Tests\Unit\Support\TestDefaultTarget */
     private $target;

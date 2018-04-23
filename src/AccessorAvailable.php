@@ -12,7 +12,7 @@ namespace Pinekta\GetaSetta;
  * @author @pinekta <h03a081b@gmail.com>
  * @copyright @pinekta All Rights Reserved
  */
-trait AccessorProvider
+trait AccessorAvailable
 {
     /**
      * The magic method when be invoked inaccessible method.

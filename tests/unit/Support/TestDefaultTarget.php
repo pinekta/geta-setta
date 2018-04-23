@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Support;
 
-use Pinekta\GetaSetta\AccessorProvider;
+use Pinekta\GetaSetta\AccessorAvailable;
 
 /**
  * A class for test
@@ -15,7 +15,7 @@ use Pinekta\GetaSetta\AccessorProvider;
  */
 class TestDefaultTarget
 {
-    use AccessorProvider;
+    use AccessorAvailable;
 
     private $str;
     private $int;

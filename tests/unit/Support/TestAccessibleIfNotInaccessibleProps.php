@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Support;
 
-use Pinekta\GetaSetta\AccessorProvider;
+use Pinekta\GetaSetta\AccessorAvailable;
 
 /**
  * A class for 'testAccessibleIfNotInaccessibleProps' test
@@ -13,7 +13,7 @@ use Pinekta\GetaSetta\AccessorProvider;
  */
 class TestAccessibleIfNotInaccessibleProps
 {
-    use AccessorProvider;
+    use AccessorAvailable;
     protected static $gsInaccessibleProps = ['inaccessible'];
     private $accessible;
 }

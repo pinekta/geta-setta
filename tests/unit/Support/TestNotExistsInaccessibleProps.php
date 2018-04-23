@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Support;
 
-use Pinekta\GetaSetta\AccessorProvider;
+use Pinekta\GetaSetta\AccessorAvailable;
 
 /**
  * A class for 'testNotExistsInaccessibleProps' test
@@ -13,6 +13,6 @@ use Pinekta\GetaSetta\AccessorProvider;
  */
 class TestNotExistsInaccessibleProps
 {
-    use AccessorProvider;
+    use AccessorAvailable;
     private $test;
 }
