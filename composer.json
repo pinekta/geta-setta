@@ -1,0 +1,31 @@
+{
+    "name": "pinekta/geta-setta",
+    "description": "This library 'geta-setta' provides getter method and setter method.",
+    "type": "library",
+    "keywords": ["getter","setter","accessor","php","tools"],
+    "homepage": "http://pinekta.github.io/geta-setta/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pinekta",
+            "email": "h03a081b@gmail.com"
+        }
+    ],
+    "require": {
+        "php-coveralls/php-coveralls": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.1",
+        "squizlabs/php_codesniffer": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pinekta\\GetaSetta\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Unit\\": "tests/unit"
+        }
+    }
+}
