@@ -313,8 +313,7 @@ class AccessorAvailableTest extends TestCase
     public function testInaccessibleIfNotArray()
     {
         $target = new TestInaccessibleIfNotArray();
-        //$target->setInaccessible('foo');
-        $target->setInaccessible('hoge');
+        $target->setInaccessible('foo');
         $this->assertNotEquals('bar', $target->getInaccessible());
         $this->assertEquals('foo', $target->getInaccessible());
     }
