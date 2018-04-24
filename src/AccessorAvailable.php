@@ -43,10 +43,6 @@ trait AccessorAvailable
                 $propertyName = lcfirst(substr($methodName, 3));
             }
 
-            if ($methodName === 'test') {
-                $methodName = "test";
-            }
-
             switch ($methodPrefix) {
                 case 'get':
                     if ($this->nonStaticPropertyExists($propertyName)) {
