@@ -1,6 +1,7 @@
 # geta-setta
 
 ![Build status](https://img.shields.io/circleci/project/github/pinekta/geta-setta.svg)
+[![Coverage Status](https://coveralls.io/repos/github/pinekta/geta-setta/badge.svg?branch=master)](https://coveralls.io/github/pinekta/geta-setta?branch=master)
 
 <!--
 badge
