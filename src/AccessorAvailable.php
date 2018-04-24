@@ -11,6 +11,7 @@ namespace Pinekta\GetaSetta;
  * @access public
  * @author @pinekta <h03a081b@gmail.com>
  * @copyright @pinekta All Rights Reserved
+ * @todo Add fill method
  */
 trait AccessorAvailable
 {
@@ -40,6 +41,10 @@ trait AccessorAvailable
             if (strlen($methodName) > 3) {
                 $methodPrefix = substr($methodName, 0, 3);
                 $propertyName = lcfirst(substr($methodName, 3));
+            }
+
+            if ($methodName === 'test') {
+                $methodName = "test";
             }
 
             switch ($methodPrefix) {
