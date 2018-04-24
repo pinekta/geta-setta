@@ -1,5 +1,7 @@
 # geta-setta
 
+![Build status](https://img.shields.io/circleci/project/github/pinekta/geta-setta.svg)
+
 <!--
 badge
 logo image
