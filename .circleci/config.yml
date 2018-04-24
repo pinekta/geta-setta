@@ -30,7 +30,7 @@ jobs:
 
       - run: composer install -n --prefer-dist
 
-      - run: sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+      #- run: sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
 
       - save_cache:
           paths:

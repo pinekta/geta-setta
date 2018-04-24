@@ -20,6 +20,7 @@ composer.phar
 !.vscode/extensions.json
 .history
 
+/build
 .coveralls.yml
 
 # End of https://www.gitignore.io/api/vagrant,composer,visualstudiocode
