@@ -317,4 +317,53 @@ class AccessorAvailableTest extends TestCase
         $this->assertNotEquals('bar', $target->getInaccessible());
         $this->assertEquals('foo', $target->getInaccessible());
     }
+
+    /**
+     * Case fill method if argument is nothing
+     *
+     * @test
+     * @expectedException \InvalidArgumentException
+     */
+    public function testFillIfNoArgs()
+    {
+        $this->target->fill();
+    }
+
+    /**
+     * Case fill method if argument is not array or object
+     *
+     * @test
+     * @expectedException \InvalidArgumentException
+     */
+    public function testFillIfNotArrayOrObject()
+    {
+        $this->target->fill('test');
+    }
+
+    /**
+     * Case fill method if argument is array
+     *
+     * @test
+     */
+    public function testFillIfArray()
+    {
+        $this->target->fill(['name' => 'pinekta', 'abc' => 'def']);
+        $this->assertEquals('pinekta', $this->target->getName());
+        $this->assertEquals('def', $this->target->getAbc());
+    }
+
+    /**
+     * Case fill method if argument is object
+     *
+     * @test
+     */
+    public function testFillIfObject()
+    {
+        $obj = new \stdClass();
+        $obj->name = 'pinekta';
+        $obj->abc = 'def';
+        $this->target->fill($obj);
+        $this->assertEquals('pinekta', $this->target->getName());
+        $this->assertEquals('def', $this->target->getAbc());
+    }
 }

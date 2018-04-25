@@ -64,6 +64,10 @@ trait AccessorAvailable
                     throw new \BadMethodCallException();
                     break;
                 default:
+                    if ($methodName === 'fill') {
+                        return $this->getaSettaFill($arguments);
+                    }
+
                     $propertyName = $methodName;
                     if ($this->nonStaticPropertyExists($propertyName)) {
                         if (count($arguments) == 0) {
@@ -112,5 +116,34 @@ trait AccessorAvailable
 
         // property not exists
         return false;
+    }
+
+    /**
+     * fill property argument value
+     *
+     * @param array $arguments
+     * @return mixed $this
+     */
+    private function getaSettaFill(array $arguments)
+    {
+        if (count($arguments) == 0) {
+            throw new \InvalidArgumentException('Argument not set in [fill] method.');
+        }
+
+        if (is_array($arguments[0])) {
+            $props = $arguments[0];
+        } elseif (is_object($arguments[0])) {
+            $props = json_decode(json_encode($arguments[0]), true);
+        } else {
+            throw new \InvalidArgumentException('Primary argument is not array or object.');
+        }
+
+        foreach ($props as $key => $value) {
+            if ($this->nonStaticPropertyExists($key)) {
+                $this->$key = $value;
+            }
+        }
+
+        return $this;
     }
 }
