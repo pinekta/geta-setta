@@ -134,10 +134,15 @@ In addition, if both `gsUnwritableProps` and `gsInaccessibleProps` is exists in 
 Comming soon...
 -->
 
-## Contribute
+## Contributing
 
-[Contributing](./CONTRIBUTING.md)
+Contributions are welcome! Please read [CONTRIBUTING](./CONTRIBUTING.md) for details.
+
+## Copyright
+
+The pinekta/geta-setta is copyright © [@pinekta](https://github.com/pinekta).
 
 ## License
 
-getta-setta is licensed under the MIT license.
+The pinekta/getta-setta is licensed under the MIT License.
+Please see [LICENSE](./LICENSE) for more information.
