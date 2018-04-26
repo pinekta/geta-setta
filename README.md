@@ -82,6 +82,26 @@ $set->tune = 'New Dawn Fades';
 $audioPlayer->fill($set);
 ```
 
+### Unwritable properties
+
+If you want to exclude writing certain properties (like 'id'), you add `$gsUnwritableProps` property in the calling class.
+
+```php
+class Disc
+{
+    use AccessorAvailable;
+    protected static $gsUnwritableProps = ['id'];
+    private $id;
+    private $name;
+    private $size;
+}
+
+$disc = new Disc();
+$disc->setId(100);                // BadMethodCallException occurs
+```
+
+Please use it if there are properties that is troublesome when written.
+
 ### Inaccessible properties
 
 If you want to exclude certain properties, you add `$gsInaccessibleProps` property in the calling class.
@@ -106,6 +126,7 @@ $audioPlayer->tune();                    // BadMethodCallException occurs
 ```
 
 Please use it if there are properties that is troublesome when accessed.
+In addition, if both `gsUnwritableProps` and `gsInaccessibleProps` is exists in the code, `gsInaccessibleProps` takes precedence.
 
 <!--
 ## Documentation
