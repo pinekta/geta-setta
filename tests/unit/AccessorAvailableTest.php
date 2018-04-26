@@ -8,6 +8,8 @@ use Tests\Unit\Support\TestNotExistsInaccessibleProps;
 use Tests\Unit\Support\TestAccessibleIfNotInaccessibleProps;
 use Tests\Unit\Support\TestInaccessibleIfInaccessibleProps;
 use Tests\Unit\Support\TestInaccessibleIfNotArray;
+use Tests\Unit\Support\TestUnwritableProps;
+use Tests\Unit\Support\TestUnwritablePropsIfNotArray;
 
 /**
  * A test for AccessorAvailable
@@ -365,5 +367,71 @@ class AccessorAvailableTest extends TestCase
         $this->target->fill($obj);
         $this->assertEquals('pinekta', $this->target->getName());
         $this->assertEquals('def', $this->target->getAbc());
+    }
+
+    /**
+     * Case Not exists UnwritableProps
+     *
+     * @test
+     */
+    public function testNotExistsUnwritableProps()
+    {
+        $this->target->setName('foo');
+        $this->assertNotEquals('bar', $this->target->getName());
+        $this->assertEquals('foo', $this->target->getName());
+    }
+
+    /**
+     * Case writable property
+     *
+     * @test
+     */
+    public function testWritableIfNotUnwritableProps()
+    {
+        $target = new TestUnwritableProps();
+        $target->setWritable('foo');
+        $this->assertNotEquals('bar', $target->getWritable());
+        $this->assertEquals('foo', $target->getWritable());
+    }
+
+    /**
+     * Case Unwritable property
+     *
+     * @test
+     * @expectedException \BadMethodCallException
+     */
+    public function testUnwritableIfUnwritableProps()
+    {
+        $target = new TestUnwritableProps();
+        $target->setUnwritable('foo');
+    }
+
+    /**
+     * Case UnwritableProps is not array
+     *
+     * @test
+     */
+    public function testUnwritablePropsIfNotArray()
+    {
+        $target = new TestUnwritablePropsIfNotArray();
+        $target->setUnwritable('foo');
+        $this->assertNotEquals('bar', $target->getUnwritable());
+        $this->assertEquals('foo', $target->getUnwritable());
+    }
+
+    /**
+     * Case Unwritable property when 'fill' method
+     *
+     * @test
+     */
+    public function testUnwritableByFillIfUnwritableProps()
+    {
+        $target = new TestUnwritableProps();
+        $target->fill([
+            'writable' => 'foo',
+            'unwritable' => 'bar',
+        ]);
+        $this->assertEquals('foo', $target->getWritable());
+        $this->assertNull($target->getUnwritable());
     }
 }

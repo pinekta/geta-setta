@@ -56,7 +56,8 @@ trait AccessorAvailable
                         throw new \InvalidArgumentException('Argument not set in [set] method.');
                     }
 
-                    if ($this->nonStaticPropertyExists($propertyName)) {
+                    if ($this->nonStaticPropertyExists($propertyName) &&
+                        $this->isWritableProperty($propertyName)) {
                         $this->$propertyName = $arguments[0];
                         return $this;
                     }
@@ -73,8 +74,10 @@ trait AccessorAvailable
                         if (count($arguments) == 0) {
                             return $this->$propertyName;
                         } else {
-                            $this->$propertyName = $arguments[0];
-                            return $this;
+                            if ($this->isWritableProperty($propertyName)) {
+                                $this->$propertyName = $arguments[0];
+                                return $this;
+                            }
                         }
                     }
 
@@ -119,10 +122,31 @@ trait AccessorAvailable
     }
 
     /**
+     * check if the property is writable
+     *
+     * @param string $propertyName
+     * @return bool
+     */
+    private function isWritableProperty($propertyName)
+    {
+        $unwritableProps = [];
+        if (isset(static::$gsUnwritableProps) && is_array(static::$gsUnwritableProps)) {
+            $unwritableProps = static::$gsUnwritableProps;
+        }
+        if (in_array($propertyName, $unwritableProps)) {
+            // case unwritable property
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * fill property argument value
      *
      * @param array $arguments
      * @return mixed $this
+     * @throws \InvalidArgumentException
      */
     private function getaSettaFill(array $arguments)
     {
@@ -139,7 +163,8 @@ trait AccessorAvailable
         }
 
         foreach ($props as $key => $value) {
-            if ($this->nonStaticPropertyExists($key)) {
+            if ($this->nonStaticPropertyExists($key) &&
+                $this->isWritableProperty($key)) {
                 $this->$key = $value;
             }
         }
