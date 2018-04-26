@@ -136,11 +136,7 @@ Comming soon...
 
 ## Contribute
 
-1. Check for open issues or open a new issue for a feature request or a bug
-1. Fork the repository on Github to start making your changes to the master branch (or branch off of it)
-1. Write codes what is based on PSR-2.
-1. Write a test which shows that the bug was fixed or that the feature works as expected
-1. Send a pull request and bug me until I merge it
+[Contributing](./CONTRIBUTING.md)
 
 ## License
 
