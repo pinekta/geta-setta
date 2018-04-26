@@ -56,6 +56,34 @@ echo $audioPlayer->disc();               // "Can [Monster Movie]" outputs
 echo $audioPlayer->tune();               // "You Doo Right" outputs
 ```
 
+## Advanced Usage
+
+### Set values collectively
+
+```php
+class AudioPlayer
+{
+    use AccessorAvailable;
+    private $disc;
+    private $tune;
+}
+
+$audioPlayer = new AudioPlayer();
+// Case array
+$audioPlayer->fill([
+    'disc' => 'Number Girl [SAPPUKEI]',
+    'tune' => 'ZEGEN VS UNDERCOVER',
+]);
+
+// Case object
+$set = new \stdClass();
+$set->disc = 'Joy Division [Unknown Pleasures]';
+$set->tune = 'New Dawn Fades';
+$audioPlayer->fill($set);
+```
+
+### Inaccessible properties
+
 If you want to exclude certain properties, you add `$gsInaccessibleProps` property in the calling class.
 
 ```php
