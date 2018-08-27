@@ -23,13 +23,11 @@ And if there is not the argument, a value of the property with the same name as 
 
 geta-setta requires PHP >= 5.4.0.
 
-<!--
 ## Installation
 
 ```
 $ composer require pinekta/geta-setta
 ```
--->
 
 ## Usage
 
