@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/pinekta/geta-setta/badge.svg?branch=master)](https://coveralls.io/github/pinekta/geta-setta?branch=master)
 ![License](https://img.shields.io/packagist/l/pinekta/geta-setta.svg)
 ![PHP Version](https://img.shields.io/badge/PHP-%3E%3D5.4-blue.svg)
+![Packagist Version](https://img.shields.io/packagist/v/pinekta/geta-setta.svg)
 
 
 <!--
